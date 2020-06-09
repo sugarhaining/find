@@ -1,0 +1,4 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="index"><text>find 校园轻社交</text>
+    </view>
+</block>
