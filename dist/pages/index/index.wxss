@@ -1,0 +1,93 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot");
+  /* IE9*/
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff2") format("woff2"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff") format("woff"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.ttf") format("truetype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.svg#站酷小薇体") format("svg");
+  /* iOS 4.1- */
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.web-font {
+  font-family: "webfont" !important;
+  font-style: normal;
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-stroke-width: 0.2rpx;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 70rpx;
+  color: #FFD531;
+}
+.logo {
+  margin-top: 150rpx;
+}
+.logo-image {
+  width: 90vw;
+  position: fixed;
+  bottom: 100rpx;
+}
+.surround-navigator {
+  font-size: 40rpx;
+  margin-top: 100rpx;
+}
+.controller {
+  width: 420rpx;
+  height: 110rpx;
+  padding: 10rpx 40rpx;
+  box-sizing: border-box;
+  box-shadow: 0 6rpx 30rpx 1rpx #eee;
+  border-radius: 80rpx;
+  position: fixed;
+  bottom: 80rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: white;
+}
+.controller .home {
+  width: 80rpx;
+  height: 80rpx;
+  background: transparent;
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 20rpx;
+}
+.controller .home image {
+  width: 60rpx;
+  height: 60rpx;
+}
+.controller .home::after {
+  content: '';
+  position: absolute;
+  width: 35rpx;
+  height: 35rpx;
+  top: 0;
+  right: 0;
+  background-color: rgba(255, 213, 49, 0.6);
+  border-radius: 50%;
+  box-shadow: -2rpx -2rpx 60rpx 2rpx #FFD531;
+  z-index: -1;
+}
+.qrcode {
+  width: 70rpx;
+  height: 70rpx;
+  background-color: #FFD531;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.qrcode image {
+  width: 40rpx;
+  height: 40rpx;
+  font-weight: bolder;
+}

@@ -1,0 +1,33 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot");
+  /* IE9*/
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff2") format("woff2"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff") format("woff"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.ttf") format("truetype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.svg#站酷小薇体") format("svg");
+  /* iOS 4.1- */
+}
+.container {
+  width: 100vw;
+  height: 100vh;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.button {
+  margin-top: -20rpx;
+  width: 500rpx;
+  height: 100rpx;
+  border-radius: 60rpx;
+  line-height: 100rpx;
+  background-color: #FFD531;
+  font-size: 36rpx;
+  color: #fff;
+  box-shadow: 0 6rpx 30rpx 1rpx #eee;
+}
+.button::after {
+  display: none;
+}

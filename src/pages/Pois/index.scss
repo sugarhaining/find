@@ -1,0 +1,79 @@
+@mixin title-font {
+    @include web-font;
+    font-size: 30px;
+    -webkit-text-stroke-width: 0;
+}
+.container {
+    background-color: #fffafa;
+}
+.title {
+    width: 100vw;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: $theme_color;
+    clip-path: ellipse(90vw 100px at 50% 0);
+    font-size: 40px;
+    color: white;
+}
+.swiper {
+    width: 100vw;
+    height: 260px;
+    margin-top: 10px;
+    .item {
+        width: 100%;
+        height: 100%;
+        padding: 10px 30px;
+        box-sizing: border-box;
+        image {
+            width: 100%;
+            height: 100%;
+            border-radius: 40px;
+        }
+    }
+}
+.pois {
+    width: 100vw;
+    @include flex-row;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    margin-bottom: 20px;
+    background-color: transparent;
+}
+.poi {
+    width: 46vw;
+    margin: {
+        bottom: 20px;
+        left: 2vw;
+        right: 2vw;
+    }
+    padding-bottom: 10px;
+    height: 380px;
+    border-radius: 10px 10px 0 0;
+    background-color: white;
+    font-size: 25px;
+    > image {
+        width: 100%;
+        height: 240px;
+        border-radius: 10px 10px 0 0;
+    }
+    .name {
+        height: 68px;
+        font-size: 30px;
+        line-height: 34px;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    .addr {
+        margin-top: 20px;
+        color: #bbb;
+    }
+    .distance {
+        display: inline-block;
+        padding: 4px 6px;
+        background-color: #bbb;
+        color: $theme_color;
+        margin-left: 6px;
+        border-radius: 10px;
+    }
+}

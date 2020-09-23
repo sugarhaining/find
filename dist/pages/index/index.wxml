@@ -1,4 +1,16 @@
 <block wx:if="{{$taroCompReady}}">
-    <view class="index"><text>find 校园轻社交</text>
+    <view class="{{anonymousState__temp}}"><text class="{{anonymousState__temp2}}">FIND -- 校园轻社交</text>
+        <image class="{{anonymousState__temp3}}" src="{{Logo}}"></image>
+        <view class="{{anonymousState__temp4}}">
+            <view class="{{anonymousState__temp5}}">
+                <image src="{{HomePng}}"></image><text>探索</text>
+            </view>
+            <view class="{{anonymousState__temp6}}" bindtap="anonymousFunc0">
+                <image src="{{QRCode}}"></image>
+            </view>
+            <view class="{{anonymousState__temp7}}" bindtap="anonymousFunc1">
+                <image src="{{HomePng}}"></image><text>周边</text>
+            </view>
+        </view>
     </view>
 </block>

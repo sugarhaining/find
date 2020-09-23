@@ -1,0 +1,15 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="{{anonymousState__temp}}">
+        <view class="{{anonymousState__temp2}}">
+            <view>
+                <image src="{{avatar}}"></image><text class="{{anonymousState__temp3}}">{{nickName}}</text>
+            </view>
+            <view class="{{anonymousState__temp4}}"><text wx:key="mood" wx:for="{{$anonymousCallee__1}}" wx:for-item="__item" wx:for-index="_anonIdx2">{{mood || '😄'}}</text>
+            </view>
+        </view>
+        <view class="{{anonymousState__temp5}}">{{content}}</view>
+        <view class="{{anonymousState__temp6}}">{{time}}</view>
+        <view class="{{anonymousState__temp7}}"></view>
+        <view class="{{msg.$loopState__temp9}}" wx:key="$original" wx:for="{{loopArray13}}" wx:for-item="msg" wx:for-index="_anonIdx4">{{msg.$original}}</view>
+    </view>
+</block>

@@ -1,0 +1,53 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot");
+  /* IE9*/
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff2") format("woff2"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff") format("woff"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.ttf") format("truetype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.svg#站酷小薇体") format("svg");
+  /* iOS 4.1- */
+}
+.container {
+  width: 100vw;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+  padding-bottom: 100rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.comment {
+  width: 100%;
+}
+.add {
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  bottom: 40rpx;
+  left: calc((100vw - 100rpx) / 2);
+  border-radius: 50%;
+  box-shadow: 2rpx 2rpx 40rpx 2rpx #eee;
+  background-color: #fff;
+  z-index: 999;
+}
+.add image {
+  width: 60rpx;
+  height: 60rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+}
+.add::after {
+  content: '';
+  width: 40rpx;
+  height: 40rpx;
+  position: absolute;
+  top: 10rpx;
+  right: 10rpx;
+  border-radius: 50%;
+  background-color: #FFD531;
+  opacity: .6;
+}

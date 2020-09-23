@@ -20,14 +20,25 @@ class App extends Component {
    */
   config: Config = {
     pages: [
-      'pages/index/index'
+      'pages/Publish/index',
+      'pages/index/index',
+      'pages/Comment/index',
+      'pages/Pois/index',
+      'pages/Login/index',
+      'pages/Home/index',
+      'pages/Recome/index',
     ],
     window: {
       backgroundTextStyle: 'light',
-      navigationBarBackgroundColor: '#fff',
-      navigationBarTitleText: 'WeChat',
+      navigationBarBackgroundColor: '#ffffff',
+      navigationBarTitleText: 'Find',
       navigationBarTextStyle: 'black'
-    }
+    },
+    permission: {
+        "scope.userLocation": {
+          "desc": "你的位置信息将用于小程序为您提供推荐导航服务"
+        }
+      }
   }
 
   // 在 App 类中的 render() 函数没有实际作用

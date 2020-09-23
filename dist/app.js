@@ -1,4 +1,5 @@
 require("./runtime");
+require("./common");
 require("./vendors");
 
 (wx["webpackJsonp"] = wx["webpackJsonp"] || []).push([["app"],{
@@ -55,12 +56,17 @@ var _App = function (_BaseComponent) {
     var _this = _possibleConstructorReturn(this, (_App.__proto__ || Object.getPrototypeOf(_App)).apply(this, arguments));
 
     _this.config = {
-      pages: ['pages/index/index'],
+      pages: ['pages/Publish/index', 'pages/index/index', 'pages/Comment/index', 'pages/Pois/index', 'pages/Login/index', 'pages/Home/index', 'pages/Recome/index'],
       window: {
         backgroundTextStyle: 'light',
-        navigationBarBackgroundColor: '#fff',
-        navigationBarTitleText: 'WeChat',
+        navigationBarBackgroundColor: '#ffffff',
+        navigationBarTitleText: 'Find',
         navigationBarTextStyle: 'black'
+      },
+      permission: {
+        "scope.userLocation": {
+          "desc": "你的位置信息将用于小程序为您提供推荐导航服务"
+        }
       }
     };
     return _this;

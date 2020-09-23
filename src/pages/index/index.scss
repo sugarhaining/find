@@ -1,0 +1,74 @@
+.container {
+    width: 100vw;
+    height: 100vh;
+    @include flex-column;
+}
+
+.web-font {
+    @include web-font;
+    font-size: 70px;
+    color: $theme_color;
+}
+.logo {
+    margin-top: 150px;
+}
+.logo-image {
+    width: 90vw;
+    position: fixed;
+    bottom: 100px;
+}
+.surround-navigator {
+    font-size: 40px;
+    margin-top: 100px;
+}
+.controller {
+    width: 420px;
+    height: 110px;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    box-shadow: 0 6px 30px 1px #eee;
+    border-radius: 80px;
+    position: fixed;
+    bottom: 80px;
+    @include flex-row;
+    justify-content: space-between;
+    background-color: white;
+    .home {
+        width: 80px;
+        height: 80px;
+        background: transparent;
+        position: relative;
+        @include flex-column;
+        justify-content: space-between;
+        font-size: 20px;
+        image {
+            width: 60px;
+            height: 60px;
+        }
+        &::after {
+            content: '';
+            position: absolute;
+            width: 35px;
+            height: 35px;
+            top: 0;
+            right: 0;
+            background-color: rgba(255,213,49, .6);
+            border-radius: 50%;
+            box-shadow: -2px -2px 60px 2px $theme_color;
+            z-index: -1;
+        }
+    }
+}
+.qrcode {
+    width: 70px;
+    height: 70px;
+    background-color: $theme_color;
+    border-radius: 50%;
+    @include flex-row;
+    justify-content: center;
+    image {
+        width: 40px;
+        height: 40px;
+        font-weight: bolder;
+    }
+}

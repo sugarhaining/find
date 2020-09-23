@@ -1,0 +1,41 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot");
+  /* IE9*/
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff2") format("woff2"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff") format("woff"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.ttf") format("truetype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.svg#站酷小薇体") format("svg");
+  /* iOS 4.1- */
+}
+.container {
+  width: 100vw;
+  padding: 20rpx 30rpx;
+  box-sizing: border-box;
+}
+.inner {
+  height: 300rpx;
+  border-radius: 20rpx;
+  background: yellowgreen;
+  position: relative;
+  padding-left: 140rpx;
+  padding-top: 30rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-around;
+  color: white;
+}
+.inner > image {
+  width: 160rpx;
+  height: 160rpx;
+  position: absolute;
+  top: -10rpx;
+  right: -5rpx;
+}
+.inner .weather, .inner .temperature {
+  font-size: 60rpx;
+  color: white;
+  letter-spacing: 2rpx;
+}

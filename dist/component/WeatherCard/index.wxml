@@ -1,0 +1,10 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="{{anonymousState__temp}}">
+        <view class="{{anonymousState__temp2}}">
+            <view class="{{anonymousState__temp3}}">{{weather.weather || '-'}}</view>
+            <view class="{{anonymousState__temp4}}">{{weather.temperature || '-'}}℃</view>
+            <view class="{{anonymousState__temp5}}">{{weather.province || '-'}}-{{weather.city || '-'}}</view>
+            <image src="{{weatherIconMap[weather.weather] || SunLogo}}"></image>
+        </view>
+    </view>
+</block>

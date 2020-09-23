@@ -1,0 +1,6 @@
+<block wx:if="{{$taroCompReady}}">
+    <view>
+        <title-panel compid="{{$compid__7}}"></title-panel>
+        <weather-card></weather-card>
+    </view>
+</block>

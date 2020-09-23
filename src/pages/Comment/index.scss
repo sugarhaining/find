@@ -1,0 +1,41 @@
+.container {
+    width: 100vw;
+    padding: {
+        left: 30px;
+        right: 30px;
+        bottom: 100px;
+    };
+    box-sizing: border-box;
+    @include flex_column;
+}
+.comment {
+    width: 100%;
+}
+.add {
+    width: 100px;
+    height: 100px;
+    position: fixed;
+    bottom: 40px;
+    left: calc((100vw - 100px) / 2);
+    border-radius: 50%;
+    box-shadow: 2px 2px 40px 2px #eee;
+    background-color: #fff;
+    z-index: 999;
+    image {
+        width: 60px;
+        height: 60px;
+        @include lv-center;
+    }
+    &::after {
+        content: '';
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        border-radius: 50%;
+        background-color: $theme_color;
+        opacity: .6;
+    }
+}
+

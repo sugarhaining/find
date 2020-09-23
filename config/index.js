@@ -1,3 +1,4 @@
+const path = require('path')
 const config = {
   projectName: 'friend',
   date: '2020-6-9',
@@ -27,6 +28,9 @@ const config = {
         'moduleName': 'babel-runtime'
       }]
     ]
+  },
+  sass: {
+    resource: path.resolve(__dirname, '../src/style/index.scss')
   },
   plugins: [],
   defineConstants: {

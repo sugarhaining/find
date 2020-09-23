@@ -1,0 +1,54 @@
+.map {
+    width: 100vw;
+    height: 100vh;
+}
+
+.point {
+    position: fixed;
+    width: 150px;
+    height: 150px;
+    left: calc(50vw - 75px);
+    bottom: 40px;
+    z-index: 99999;
+}
+
+.panel {
+    width: 100vw;
+    height: 80px;
+    line-height: 80px;
+    text-align: center;
+    background: rgba(255, 213, 49, 1);
+    position: fixed;
+    top: 0;
+    color: white;
+}
+
+.way {
+    position: fixed;
+    left: 0;
+    right: 0;
+    padding: 20px 0;
+    @include flex_row;
+    align-items: center;
+    justify-content: space-around;
+    animation: fadeIn forwards 0.6s;
+
+    >image {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        box-shadow: 0 0 12px 4px #ccc;
+    }
+
+    @keyframes fadeIn {
+        from {
+            bottom: -10px;
+            opacity: 0;
+        }
+
+        to {
+            bottom: 30px;
+            opacity: 1;
+        }
+    }
+}

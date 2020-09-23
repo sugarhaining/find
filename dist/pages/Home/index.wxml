@@ -1,0 +1,21 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="{{anonymousState__temp}}">
+        <view class="{{anonymousState__temp2}}">
+            <image src="{{Avatar}}" class="{{anonymousState__temp3}}"></image>
+            <view class="{{anonymousState__temp4}}" bindtap="anonymousFunc0">点我去登陆 👉</view><text class="{{anonymousState__temp5}}">最新留言</text>
+            <swiper class="{{anonymousState__temp6}}" next-margin="100rpx">
+                <swiper-item class="{{comment.$loopState__temp8}}" wx:key="comment" wx:for="{{loopArray10}}" wx:for-item="comment" wx:for-index="_anonIdx2">
+                    <view class="{{comment.$loopState__temp10}}">
+                        <view class="{{comment.$loopState__temp12}}">{{comment.$original.mood}}</view>
+                        <view class="{{comment.$loopState__temp14}}">{{comment.$loopState__temp16}}</view>
+                    </view>
+                </swiper-item>
+            </swiper>
+            <view class="{{anonymousState__temp17}}">
+                <view class="{{menu.$loopState__temp19}}" wx:key="title" bindtap="anonymousFunc1" wx:for="{{loopArray11}}" wx:for-item="menu" wx:for-index="__index1" data-e-tap-so="this" data-e-tap-a-a="{{menu._$indexKey}}"><text>{{menu.$original.title}}</text>
+                    <image src="{{menu.$original.iconPath}}"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</block>

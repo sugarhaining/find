@@ -1,0 +1,6 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="{{anonymousState__temp}}">
+        <image src="{{LoginPng}}"></image>
+        <button class="{{anonymousState__temp2}}">授权登录</button>
+    </view>
+</block>

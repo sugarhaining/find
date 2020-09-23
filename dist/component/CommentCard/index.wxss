@@ -1,0 +1,76 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot");
+  /* IE9*/
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff2") format("woff2"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff") format("woff"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.ttf") format("truetype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.svg#站酷小薇体") format("svg");
+  /* iOS 4.1- */
+}
+.container {
+  width: 100%;
+  padding: 10rpx 20rpx;
+  padding-bottom: 40rpx;
+  box-sizing: border-box;
+  box-shadow: 2rpx 2rpx 40rpx 2rpx #eee;
+  margin-top: 30rpx;
+  border-radius: 20rpx;
+  position: relative;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.avatar image {
+  width: 80rpx;
+  height: 80rpx;
+  border: 1rpx solid #eee;
+  border-radius: 50%;
+  margin-left: 10rpx;
+}
+.avatar .nick-name {
+  font-size: 34rpx;
+  margin-left: 10rpx;
+}
+.avatar .mood {
+  align-self: flex-start;
+  font-size: 26rpx;
+}
+.content {
+  font-size: 26rpx;
+  padding: 10rpx 0 10rpx 20rpx;
+  box-sizing: border-box;
+  text-indent: 2em;
+}
+.time {
+  width: 90%;
+  margin-top: 20rpx;
+  text-align: right;
+  font-size: 26rpx;
+  color: #ccc;
+}
+.hr {
+  width: 100%;
+  height: 0;
+  margin: 20rpx 0 10rpx 0;
+  border: 1rpx solid #eee;
+}
+.reply {
+  position: relative;
+  font-size: 26rpx;
+  color: #bbb;
+  margin-left: 50rpx;
+  text-indent: 0.5em;
+}
+.reply::after {
+  content: '';
+  position: absolute;
+  left: -10rpx;
+  top: 10rpx;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background-color: #FFD531;
+  opacity: .6;
+}

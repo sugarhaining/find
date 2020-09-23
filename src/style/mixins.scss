@@ -1,0 +1,41 @@
+@mixin flex-row {
+    display: flex;
+    align-items: center;
+}
+
+@mixin flex-column {
+    @include flex-row;
+    flex-direction: column;
+}
+
+@font-face {
+    font-family: 'webfont';
+    font-display: swap;
+    src: url('//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot');
+    /* IE9*/
+    src: url('//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot?#iefix') format('embedded-opentype'),
+        /* IE6-IE8 */
+        url('//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff2') format('woff2'),
+        url('//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff') format('woff'),
+        /* chrome、firefox */
+        url('//at.alicdn.com/t/webfont_yt9f4zs4gpp.ttf') format('truetype'),
+        /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+        url('//at.alicdn.com/t/webfont_yt9f4zs4gpp.svg#站酷小薇体') format('svg');
+    /* iOS 4.1- */
+}
+
+@mixin web-font {
+    font-family: "webfont" !important;
+    font-style: normal;
+    color: white;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+@mixin lv-center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate3d(-50%, -50%, 0);
+}

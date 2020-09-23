@@ -1,0 +1,11 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="{{anonymousState__temp}}">
+        <title-panel compid="{{$compid__5}}"></title-panel>
+        <view class="{{comment.$loopState__temp3}}" wx:for="{{loopArray7}}" wx:for-item="comment" wx:for-index="_anonIdx2">
+            <commetn-card compid="{{comment.$compid__4}}"></commetn-card>
+        </view>
+        <view class="{{anonymousState__temp4}}">
+            <image src="{{addCommentPng}}"></image>
+        </view>
+    </view>
+</block>
