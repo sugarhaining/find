@@ -51,3 +51,27 @@
   background-color: #FFD531;
   opacity: .6;
 }
+.no-comment {
+  width: 90%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate3d(-50%, -50%, 0);
+          transform: translate3d(-50%, -50%, 0);
+  position: fixed;
+}
+.tip {
+  width: 300rpx;
+  margin-top: 40rpx;
+  text-align: center;
+  color: #FFD531;
+  position: fixed;
+  left: calc((100vw - 300rpx) / 2);
+  bottom: 160rpx;
+  z-index: 999;
+}
+.point-down {
+  width: 50rpx;
+  height: 50rpx;
+  margin-top: 30rpx;
+}

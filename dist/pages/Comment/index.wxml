@@ -1,11 +1,21 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="{{anonymousState__temp}}">
         <title-panel compid="{{$compid__5}}"></title-panel>
-        <view class="{{comment.$loopState__temp3}}" wx:for="{{loopArray7}}" wx:for-item="comment" wx:for-index="_anonIdx2">
-            <commetn-card compid="{{comment.$compid__4}}"></commetn-card>
-        </view>
-        <view class="{{anonymousState__temp4}}">
-            <image src="{{addCommentPng}}"></image>
+        <block>
+            <block wx:if="{{comments.length === 0}}">
+                <image src="{{noCommentPng}}" class="{{anonymousState__temp2}}"></image>
+            </block>
+            <block wx:else>
+                <view class="{{comment.$loopState__temp4}}" wx:key="time" wx:for="{{loopArray9}}" wx:for-item="comment" wx:for-index="_anonIdx2">
+                    <commetn-card compid="{{comment.$compid__4}}"></commetn-card>
+                </view>
+            </block>
+        </block>
+        <block wx:if="{{comments.length === 0}}">
+            <view class="{{anonymousState__temp5}}">点击下面发布该留言板的第一条留言吧</view>
+        </block>
+        <view class="{{anonymousState__temp6}}">
+            <image src="{{addCommentPng}}" bindtap="anonymousFunc0"></image>
         </view>
     </view>
 </block>

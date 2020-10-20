@@ -1,7 +1,7 @@
 .container {
     width: 100%;
     padding: 10px 20px;
-    padding-bottom: 40px;
+    padding-bottom: 20px;
     box-sizing: border-box;
     box-shadow: 2px 2px 40px 2px #eee;
     margin-top: 30px;
@@ -33,12 +33,53 @@
     box-sizing: border-box;
     text-indent: 2em;
 }
-.time {
-    width: 90%;
+.operate {
     margin-top: 20px;
-    text-align: right;
+    padding: 0 20px;
+    box-sizing: border-box;
+    @include flex_row;
+    justify-content: space-between;
+}
+.time {
     font-size: 26px;
     color: #ccc;
+}
+.comment-reply {
+    width: 40px;
+    height: 40px;
+}
+.reply-area {
+    width: 100%;
+    padding: 4px 10px;
+    box-sizing: border-box;
+    margin-top: 20rpx;
+    @include flex_column;
+
+    textarea {
+        width: 100%;
+        padding: 10px 10px;
+        box-sizing: border-box;
+        border: 1px #eee solid;
+        font-size: 28rpx;
+    }
+    .menus {
+        width: 100%;
+        margin-top: 20px;
+        @include flex_row;
+        justify-content: space-between;
+        
+        button {
+            width: 140px;
+            height: 60px;
+            font-size: 30px;
+            line-height: 60px;
+            background-color: $theme_color;
+
+            &:first-child {
+                background-color: white;
+            }
+        }
+    }
 }
 .hr {
     width: 100%;

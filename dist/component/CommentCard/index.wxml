@@ -2,14 +2,28 @@
     <view class="{{anonymousState__temp}}">
         <view class="{{anonymousState__temp2}}">
             <view>
-                <image src="{{avatar}}"></image><text class="{{anonymousState__temp3}}">{{nickName}}</text>
+                <image src="{{avatarUrl || avatarPng}}"></image><text class="{{anonymousState__temp3}}">{{nickName}}</text>
             </view>
-            <view class="{{anonymousState__temp4}}"><text wx:key="mood" wx:for="{{$anonymousCallee__1}}" wx:for-item="__item" wx:for-index="_anonIdx2">{{mood || '😄'}}</text>
+            <view class="{{anonymousState__temp4}}"><text wx:key="mood" wx:for="{{loopArray12}}" wx:for-item="__item" wx:for-index="_anonIdx2">{{__item.$loopState__temp6}}</text>
             </view>
         </view>
-        <view class="{{anonymousState__temp5}}">{{content}}</view>
-        <view class="{{anonymousState__temp6}}">{{time}}</view>
-        <view class="{{anonymousState__temp7}}"></view>
-        <view class="{{msg.$loopState__temp9}}" wx:key="$original" wx:for="{{loopArray13}}" wx:for-item="msg" wx:for-index="_anonIdx4">{{msg.$original}}</view>
+        <view class="{{anonymousState__temp7}}">{{content}}</view>
+        <view class="{{anonymousState__temp8}}">
+            <view class="{{anonymousState__temp9}}">{{anonymousState__temp10}}</view>
+            <image src="{{replyPng}}" bindtap="anonymousFunc0" class="{{anonymousState__temp11}}"></image>
+        </view>
+        <block wx:if="{{activeComment === id}}">
+            <view class="{{anonymousState__temp12}}">
+                <textarea value="{{replyContent}}" bindinput="anonymousFunc1" maxlength="{{40}}"></textarea>
+                <view class="{{anonymousState__temp13}}">
+                    <button bindtap="anonymousFunc2">取消</button>
+                    <button bindtap="anonymousFunc3">回复</button>
+                </view>
+            </view>
+        </block>
+        <block wx:if="{{reply.length > 0}}">
+            <view class="{{anonymousState__temp14}}"></view>
+        </block>
+        <view class="{{msg.$loopState__temp16}}" wx:key="$original" wx:for="{{loopArray13}}" wx:for-item="msg" wx:for-index="_anonIdx4">{{msg.$original}}</view>
     </view>
 </block>

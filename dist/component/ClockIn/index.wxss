@@ -1,0 +1,97 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot");
+  /* IE9*/
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff2") format("woff2"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff") format("woff"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.ttf") format("truetype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.svg#站酷小薇体") format("svg");
+  /* iOS 4.1- */
+}
+.container {
+  width: 160rpx;
+  height: 50rpx;
+  font-size: 32rpx;
+  border-radius: 30rpx;
+  line-height: 50rpx;
+  padding-left: 46rpx;
+  position: relative;
+  background-image: linear-gradient(to right, white, #FFD531);
+}
+.dot {
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  right: 20rpx;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.wave {
+  width: 15rpx;
+  height: 15rpx;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  right: 20rpx;
+  -webkit-transform: translateY(-50%) scale(1);
+          transform: translateY(-50%) scale(1);
+  -webkit-animation: wave 1s ease infinite;
+          animation: wave 1s ease infinite;
+}
+@-webkit-keyframes wave {
+  0% {
+    opacity: 0.5;
+    -webkit-transform: translateY(-50%) scale(1);
+            transform: translateY(-50%) scale(1);
+  }
+  25% {
+    opacity: 0.4;
+    -webkit-transform: translateY(-50%) scale(1.5);
+            transform: translateY(-50%) scale(1.5);
+  }
+  50% {
+    opacity: 0.3;
+    -webkit-transform: translateY(-50%) scale(2);
+            transform: translateY(-50%) scale(2);
+  }
+  75% {
+    opacity: 0.2;
+    -webkit-transform: translateY(-50%) scale(2.5);
+            transform: translateY(-50%) scale(2.5);
+  }
+  100% {
+    opacity: 0.1;
+    -webkit-transform: translateY(-50%) scale(3);
+            transform: translateY(-50%) scale(3);
+  }
+}
+@keyframes wave {
+  0% {
+    opacity: 0.5;
+    -webkit-transform: translateY(-50%) scale(1);
+            transform: translateY(-50%) scale(1);
+  }
+  25% {
+    opacity: 0.4;
+    -webkit-transform: translateY(-50%) scale(1.5);
+            transform: translateY(-50%) scale(1.5);
+  }
+  50% {
+    opacity: 0.3;
+    -webkit-transform: translateY(-50%) scale(2);
+            transform: translateY(-50%) scale(2);
+  }
+  75% {
+    opacity: 0.2;
+    -webkit-transform: translateY(-50%) scale(2.5);
+            transform: translateY(-50%) scale(2.5);
+  }
+  100% {
+    opacity: 0.1;
+    -webkit-transform: translateY(-50%) scale(3);
+            transform: translateY(-50%) scale(3);
+  }
+}

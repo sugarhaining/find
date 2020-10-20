@@ -1,5 +1,6 @@
 import {AMAPKEY} from '../CONSTANT'
 import AMapWX from '../../libs/amap-wx'
+export * from './custom'
 
 const myAmapFun = new AMapWX({key: AMAPKEY})
 
@@ -12,16 +13,6 @@ export const fetchPois = (): Promise<any> => {
             fail(info) {
                 reject(info)
             }
-        })
-    })
-}
-
-export const fetchAuthStatus = (): Promise<any> => {
-    return new Promise(resolve => {
-        Taro.getSetting().then(res => {
-            resolve([null, res])
-        }).catch(err => {
-            resolve([err, null])
         })
     })
 }

@@ -48,6 +48,11 @@
   font-size: 40rpx;
   font-weight: 400;
 }
+.clock-in {
+  position: absolute;
+  right: 50rpx;
+  top: 40rpx;
+}
 .comment {
   align-self: flex-start;
   margin-top: 30rpx;

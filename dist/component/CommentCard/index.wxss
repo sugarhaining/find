@@ -10,7 +10,7 @@
 .container {
   width: 100%;
   padding: 10rpx 20rpx;
-  padding-bottom: 40rpx;
+  padding-bottom: 20rpx;
   box-sizing: border-box;
   box-shadow: 2rpx 2rpx 40rpx 2rpx #eee;
   margin-top: 30rpx;
@@ -43,12 +43,54 @@
   box-sizing: border-box;
   text-indent: 2em;
 }
-.time {
-  width: 90%;
+.operate {
   margin-top: 20rpx;
-  text-align: right;
+  padding: 0 20rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.time {
   font-size: 26rpx;
   color: #ccc;
+}
+.comment-reply {
+  width: 40rpx;
+  height: 40rpx;
+}
+.reply-area {
+  width: 100%;
+  padding: 4rpx 10rpx;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.reply-area textarea {
+  width: 100%;
+  padding: 10rpx 10rpx;
+  box-sizing: border-box;
+  border: 1rpx #eee solid;
+  font-size: 28rpx;
+}
+.reply-area .menus {
+  width: 100%;
+  margin-top: 20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.reply-area .menus button {
+  width: 140rpx;
+  height: 60rpx;
+  font-size: 30rpx;
+  line-height: 60rpx;
+  background-color: #FFD531;
+}
+.reply-area .menus button:first-child {
+  background-color: white;
 }
 .hr {
   width: 100%;

@@ -113,7 +113,7 @@ var Index = (_temp2 = _class = function (_Taro$Component) {
                 result = _ref3.result;
 
                 _taroWeapp2.default.navigateTo({
-                  url: "/pages/Comment/index?commentBoardId=" + result
+                  url: "/pages/Comment/index?boardId=" + result
                 });
                 _context.next = 11;
                 break;

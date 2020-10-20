@@ -1,0 +1,91 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'webfont';
+  font-display: swap;
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot");
+  /* IE9*/
+  src: url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.eot?#iefix") format("embedded-opentype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff2") format("woff2"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.woff") format("woff"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.ttf") format("truetype"), url("//at.alicdn.com/t/webfont_yt9f4zs4gpp.svg#站酷小薇体") format("svg");
+  /* iOS 4.1- */
+}
+.publish {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.publish-title {
+  width: 100%;
+  height: 140rpx;
+  padding: 0 20rpx 0 50rpx;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx #eee solid;
+}
+.publish-title button {
+  width: 140rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  margin: 0;
+  padding: 0;
+  font-size: 28rpx;
+  color: white;
+  border-radius: 40rpx;
+  background-color: #FFD531;
+}
+.publish-area {
+  width: 100%;
+  height: 600rpx;
+  margin-top: 10rpx;
+  padding: 10rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+  border-bottom: 1rpx #eee solid;
+}
+.publish-button {
+  position: fixed;
+  bottom: 10rpx;
+}
+.publish-button::after {
+  display: none;
+}
+.publish-options {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx #eee solid;
+  width: 100%;
+  height: 100rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+}
+.publish-options .title {
+  display: flex;
+  align-items: center;
+  font-size: 30rpx;
+}
+.publish-options image {
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 20rpx;
+}
+.publish-picker {
+  width: 100%;
+}
+.publish-tag {
+  width: 100%;
+  height: 60rpx;
+  display: flex;
+  align-items: center;
+  align-items: flex-end;
+  border-bottom: 1rpx #eee solid;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+}
+.publish-tag input {
+  width: 100%;
+  font-size: 26rpx;
+}
+.tag {
+  font-size: 24rpx;
+}

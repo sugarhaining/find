@@ -1,0 +1,38 @@
+@mixin dot_base {
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+}
+
+.container {
+    width: 160px;
+    height: 50px;
+    font-size: 32px;
+    border-radius: 30px;
+    line-height: 50px;
+    padding-left: 46px;
+    position: relative;
+    background-image: linear-gradient(to right, white, $theme_color);
+}
+.dot {
+    @include dot_base();
+    transform: translateY(-50%);
+}
+.wave {
+    @include dot_base();
+    transform: translateY(-50%) scale(1);
+    animation: wave 1s ease infinite;
+}
+
+@keyframes wave {
+    @for $i from 0 through 4 {
+        #{$i * 25%} {
+            opacity: #{0.5 - $i * 0.1};
+            transform: translateY(-50%) scale(1 + 0.5 * $i);
+        }
+    }
+}

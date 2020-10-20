@@ -36,7 +36,7 @@ const splitLocation = (location: string = ''): Point => {
     const locationArr = location.split(',')
     return {
         longitude: +locationArr[0],
-        latitude: +locationArr[1] 
+        latitude: +locationArr[1]
     }
 }
 const travelModeMap = {
@@ -46,7 +46,7 @@ const travelModeMap = {
 }
 
 const Navigation: Taro.FC<IProps> = () => {
-    const {longitude, latitude} = useUserLocation()
+    const { location: { longitude, latitude } } = useUserLocation()
     const { params: { location } } = useRouter()
     const [travelMode, setTravelMode] = useState<TravelMode>('walking')
     const [isSelectTraelMode, setIsSelectTravelMode] = useState(false)
@@ -85,27 +85,27 @@ const Navigation: Taro.FC<IProps> = () => {
                 })
             } else {
                 let points: Point[] = [];
-                if(data.paths && data.paths[0] && data.paths[0].steps){
-                var steps = data.paths[0].steps;
-                for(var i = 0; i < steps.length; i++){
-                    var poLen = steps[i].polyline.split(';');
-                    for(var j = 0;j < poLen.length; j++){
-                    points.push({
-                        longitude: parseFloat(poLen[j].split(',')[0]),
-                        latitude: parseFloat(poLen[j].split(',')[1])
-                    })
-                    } 
-                }
-                setPolyline([
-                    {
-                        points,
-                        color: '#0091ff',
-                        width: 6,
+                if (data.paths && data.paths[0] && data.paths[0].steps) {
+                    var steps = data.paths[0].steps;
+                    for (var i = 0; i < steps.length; i++) {
+                        var poLen = steps[i].polyline.split(';');
+                        for (var j = 0; j < poLen.length; j++) {
+                            points.push({
+                                longitude: parseFloat(poLen[j].split(',')[0]),
+                                latitude: parseFloat(poLen[j].split(',')[1])
+                            })
+                        }
                     }
-                ])
+                    setPolyline([
+                        {
+                            points,
+                            color: '#0091ff',
+                            width: 6,
+                        }
+                    ])
+                }
             }
         }
-    }
         fetch()
         // Taro.openLocation({
         //     latitude,
@@ -119,13 +119,13 @@ const Navigation: Taro.FC<IProps> = () => {
             {
                 isSelectTraelMode ? (
                     <View className={cx('way')}>
-                        <Image src={WalkLogo} onClick={() => selectTravelMode('walking')}/>
-                        <Image src={BicyLogo} onClick={() => selectTravelMode('riding')}/>
-                        <Image src={DriveLogo} onClick={() => selectTravelMode('driving')}/>
+                        <Image src={WalkLogo} onClick={() => selectTravelMode('walking')} />
+                        <Image src={BicyLogo} onClick={() => selectTravelMode('riding')} />
+                        <Image src={DriveLogo} onClick={() => selectTravelMode('driving')} />
                     </View>
                 ) : (
-                    <Image src={PointLogo} className={cx('point')} onClick={() => setIsSelectTravelMode(true)}/>
-                )
+                        <Image src={PointLogo} className={cx('point')} onClick={() => setIsSelectTravelMode(true)} />
+                    )
             }
         </View>
     )

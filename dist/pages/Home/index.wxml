@@ -1,18 +1,30 @@
 <block wx:if="{{$taroCompReady}}">
     <view class="{{anonymousState__temp}}">
         <view class="{{anonymousState__temp2}}">
-            <image src="{{Avatar}}" class="{{anonymousState__temp3}}"></image>
-            <view class="{{anonymousState__temp4}}" bindtap="anonymousFunc0">点我去登陆 👉</view><text class="{{anonymousState__temp5}}">最新留言</text>
-            <swiper class="{{anonymousState__temp6}}" next-margin="100rpx">
-                <swiper-item class="{{comment.$loopState__temp8}}" wx:key="comment" wx:for="{{loopArray10}}" wx:for-item="comment" wx:for-index="_anonIdx2">
-                    <view class="{{comment.$loopState__temp10}}">
-                        <view class="{{comment.$loopState__temp12}}">{{comment.$original.mood}}</view>
-                        <view class="{{comment.$loopState__temp14}}">{{comment.$loopState__temp16}}</view>
-                    </view>
-                </swiper-item>
-            </swiper>
-            <view class="{{anonymousState__temp17}}">
-                <view class="{{menu.$loopState__temp19}}" wx:key="title" bindtap="anonymousFunc1" wx:for="{{loopArray11}}" wx:for-item="menu" wx:for-index="__index1" data-e-tap-so="this" data-e-tap-a-a="{{menu._$indexKey}}"><text>{{menu.$original.title}}</text>
+            <image src="{{anonymousState__temp3}}" class="{{anonymousState__temp4}}"></image>
+            <block>
+                <block wx:if="{{anonymousState__temp25}}">
+                    <view class="{{anonymousState__temp5}}">{{userInfo.nickName}}</view>
+                </block>
+                <block wx:else>
+                    <view class="{{anonymousState__temp6}}" bindtap="anonymousFunc0">点我去登陆 👉</view>
+                </block>
+            </block>
+            <view class="{{anonymousState__temp7}}">
+                <clock-in></clock-in>
+            </view><text class="{{anonymousState__temp8}}">最新留言</text>
+            <block wx:if="{{comments.length > 0}}">
+                <swiper class="{{anonymousState__temp9}}" next-margin="100rpx">
+                    <swiper-item class="{{comment.$loopState__temp11}}" wx:key="time" bindtap="anonymousFunc1" wx:for="{{loopArray16}}" wx:for-item="comment" wx:for-index="__index1" data-e-tap-so="this" data-e-tap-a-a="{{comment._$indexKey}}">
+                        <view class="{{comment.$loopState__temp13}}">
+                            <view class="{{comment.$loopState__temp15}}">{{comment.$loopState__temp17}}</view>
+                            <view class="{{comment.$loopState__temp19}}">{{comment.$loopState__temp21}}</view>
+                        </view>
+                    </swiper-item>
+                </swiper>
+            </block>
+            <view class="{{anonymousState__temp22}}">
+                <view class="{{menu.$loopState__temp24}}" wx:key="title" bindtap="anonymousFunc2" wx:for="{{loopArray17}}" wx:for-item="menu" wx:for-index="__index2" data-e-tap-so="this" data-e-tap-a-a="{{menu._$indexKey2}}"><text>{{menu.$original.title}}</text>
                     <image src="{{menu.$original.iconPath}}"></image>
                 </view>
             </view>

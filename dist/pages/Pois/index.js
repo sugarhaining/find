@@ -32,6 +32,8 @@ var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
 
 var _index = __webpack_require__(/*! ../../utils/apis/index */ "./src/utils/apis/index.ts");
 
+var _common = __webpack_require__(/*! ../../utils/common */ "./src/utils/common.ts");
+
 var _placeholder = __webpack_require__(/*! ../../asserts/icons/placeholder.png */ "./src/asserts/icons/placeholder.png");
 
 var _placeholder2 = _interopRequireDefault(_placeholder);
@@ -91,7 +93,7 @@ var Pois = (_temp2 = _class = function (_Taro$Component) {
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Pois.__proto__ || Object.getPrototypeOf(Pois)).call.apply(_ref, [this].concat(args))), _this), _this.config = {
       navigationBarBackgroundColor: '#ffd531',
       navigationBarTitleText: ''
-    }, _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp5", "loopArray8", "loopArray9", "$compid__6", "swiperImages", "pois", "placeholder"], _this.anonymousFunc0Map = {}, _this.customComponents = ["TitlePanel"], _temp), _possibleConstructorReturn(_this, _ret);
+    }, _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp5", "loopArray10", "loopArray11", "$compid__6", "swiperImages", "pois", "placeholder"], _this.anonymousFunc0Map = {}, _this.customComponents = ["TitlePanel"], _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Pois, [{
@@ -184,7 +186,7 @@ var Pois = (_temp2 = _class = function (_Taro$Component) {
       var anonymousState__temp = cx('container');
       var anonymousState__temp2 = cx('swiper');
       var anonymousState__temp5 = cx('pois');
-      var loopArray8 = swiperImages.map(function (swiper, _anonIdx) {
+      var loopArray10 = swiperImages.map(function (swiper, _anonIdx) {
         swiper = {
           $original: (0, _taroWeapp.internal_get_original)(swiper)
         };
@@ -194,27 +196,31 @@ var Pois = (_temp2 = _class = function (_Taro$Component) {
           $original: swiper.$original
         };
       });
-      var loopArray9 = pois.map(function (poi, __index0) {
+      var loopArray11 = pois.map(function (poi, __index0) {
         poi = {
           $original: (0, _taroWeapp.internal_get_original)(poi)
         };
         var $loopState__temp7 = cx('poi');
 
-        var _$indexKey = "ezzzz" + __index0;
+        var _$indexKey = "hzzzz" + __index0;
 
         _this2.anonymousFunc0Map[_$indexKey] = function () {
           return showRoute(poi.$original.location, poi.$original.name, poi.$original.address);
         };
 
         var $loopState__temp9 = cx('name');
-        var $loopState__temp11 = cx('distance');
-        var $loopState__temp13 = cx('addr');
+        var $loopState__temp11 = (0, _common.splitString)(poi.$original.name, 16);
+        var $loopState__temp13 = cx('distance');
+        var $loopState__temp15 = cx('addr');
+        var $loopState__temp17 = (0, _common.splitString)(poi.$original.address, 25) || '...';
         return {
           $loopState__temp7: $loopState__temp7,
           _$indexKey: _$indexKey,
           $loopState__temp9: $loopState__temp9,
           $loopState__temp11: $loopState__temp11,
           $loopState__temp13: $loopState__temp13,
+          $loopState__temp15: $loopState__temp15,
+          $loopState__temp17: $loopState__temp17,
           $original: poi.$original
         };
       });
@@ -225,8 +231,8 @@ var Pois = (_temp2 = _class = function (_Taro$Component) {
         anonymousState__temp: anonymousState__temp,
         anonymousState__temp2: anonymousState__temp2,
         anonymousState__temp5: anonymousState__temp5,
-        loopArray8: loopArray8,
-        loopArray9: loopArray9,
+        loopArray10: loopArray10,
+        loopArray11: loopArray11,
         $compid__6: $compid__6,
         swiperImages: swiperImages,
         pois: pois,

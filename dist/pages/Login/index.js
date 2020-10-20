@@ -14,6 +14,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _regenerator = __webpack_require__(/*! babel-runtime/regenerator */ "./node_modules/babel-runtime/regenerator/index.js");
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -36,7 +42,13 @@ var _index = __webpack_require__(/*! ./index.scss */ "./src/pages/Login/index.sc
 
 var _index2 = _interopRequireDefault(_index);
 
+var _lodash = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
+var _index3 = __webpack_require__(/*! ../../utils/apis/index */ "./src/utils/apis/index.ts");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -73,13 +85,93 @@ var Login = (_temp2 = _class = function (_Taro$Component) {
   }, {
     key: '_createData',
     value: function _createData() {
+      var _this2 = this;
+
       this.__state = arguments[0] || this.state || {};
       this.__props = arguments[1] || this.props || {};
       var __isRunloopRef = arguments[2];
       var __prefix = this.$prefix;
       ;
+
+      var _useRouter = (0, _taroWeapp.useRouter)(),
+          params = _useRouter.params;
+
+      var redirectUrl = (0, _lodash.get)(params, ['redirectUrl']);
+      var paramsPayload = (0, _lodash.omit)(params, ['redirectUrl']);
+      var urlSuffixes = [];
+      Object.entries(paramsPayload).forEach(function (_ref2) {
+        var _ref3 = _slicedToArray(_ref2, 2),
+            key = _ref3[0],
+            value = _ref3[1];
+
+        urlSuffixes.push(key + "=" + value);
+      });
+      var handleGetUserInfo = (0, _taroWeapp.useCallback)(function () {
+        var _ref4 = _asyncToGenerator( /*#__PURE__*/_regenerator2.default.mark(function _callee(e) {
+          var userInfo, _ref5, err, res;
+
+          return _regenerator2.default.wrap(function _callee$(_context) {
+            while (1) {
+              switch (_context.prev = _context.next) {
+                case 0:
+                  userInfo = (0, _lodash.get)(e, ['target', 'userInfo']) || null;
+
+                  if (!userInfo) {
+                    _context.next = 10;
+                    break;
+                  }
+
+                  _context.next = 4;
+                  return (0, _index3.fetchUserId)(userInfo);
+
+                case 4:
+                  _ref5 = _context.sent;
+                  err = _ref5.err;
+                  res = _ref5.res;
+
+                  if (err) {
+                    _taroWeapp2.default.showToast({
+                      title: '登陆失败，请点击重试',
+                      icon: 'none',
+                      duration: 1000
+                    });
+                  } else {
+                    _taroWeapp2.default.setStorageSync('userInfo', res);
+                    _taroWeapp2.default.showToast({
+                      title: '授权成功',
+                      duration: 1000
+                    });
+                    setTimeout(function () {
+                      redirectUrl ? _taroWeapp2.default.redirectTo({
+                        url: redirectUrl + '?' + ("" + urlSuffixes.join('&'))
+                      }) : _taroWeapp2.default.navigateBack();
+                    }, 1000);
+                  }
+                  _context.next = 12;
+                  break;
+
+                case 10:
+                  _taroWeapp2.default.hideLoading();
+                  _taroWeapp2.default.showToast({
+                    title: '请确认授权以正常使用Find的功能',
+                    icon: 'none'
+                  });
+
+                case 12:
+                case 'end':
+                  return _context.stop();
+              }
+            }
+          }, _callee, _this2);
+        }));
+
+        return function (_x) {
+          return _ref4.apply(this, arguments);
+        };
+      }(), []);
       var anonymousState__temp = cx('container');
       var anonymousState__temp2 = cx('button');
+      this.anonymousFunc0 = handleGetUserInfo;
       Object.assign(this.__state, {
         anonymousState__temp: anonymousState__temp,
         anonymousState__temp2: anonymousState__temp2,
@@ -87,10 +179,15 @@ var Login = (_temp2 = _class = function (_Taro$Component) {
       });
       return this.__state;
     }
+  }, {
+    key: 'anonymousFunc0',
+    value: function anonymousFunc0(e) {
+      ;
+    }
   }]);
 
   return Login;
-}(_taroWeapp2.default.Component), _class.$$events = [], _class.$$componentPath = "pages/Login/index", _temp2);
+}(_taroWeapp2.default.Component), _class.$$events = ["anonymousFunc0"], _class.$$componentPath = "pages/Login/index", _temp2);
 exports.default = Login;
 
 Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(Login, true));
@@ -180,4 +277,4 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ })
 
-},[["./src/pages/Login/index.tsx","runtime","vendors"]]]);
+},[["./src/pages/Login/index.tsx","runtime","vendors","common"]]]);

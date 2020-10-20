@@ -1,3 +1,30 @@
 <block wx:if="{{$taroCompReady}}">
-    <view>留言</view>
+    <view class="{{anonymousState__temp}}">
+        <view class="{{anonymousState__temp2}}">
+            <view>发动态</view>
+            <button bindtap="anonymousFunc0">发表</button>
+        </view>
+        <textarea class="{{anonymousState__temp3}}" placeholder="分享新鲜事..." value="{{comment}}" maxlength="{{140}}" bindinput="anonymousFunc1"></textarea>
+        <picker mode="selector" class="{{anonymousState__temp4}}" range="{{moodRange}}" range-key="mood" value="{{0}}" bindchange="anonymousFunc2">
+            <view class="{{anonymousState__temp5}}">
+                <view class="{{anonymousState__temp6}}">
+                    <image src="{{MoodPng}}"></image>心情</view>
+                <block wx:if="{{mood}}">
+                    <view>{{mood}}</view>
+                </block>
+            </view>
+        </picker>
+        <view class="{{anonymousState__temp7}}" bindtap="anonymousFunc3">
+            <view class="{{anonymousState__temp8}}">
+                <image src="{{TagPng}}"></image>添加标签</view>
+            <block wx:if="{{tag}}">
+                <view class="{{anonymousState__temp9}}">#{{tag}}</view>
+            </block>
+        </view>
+        <block wx:if="{{editTag}}">
+            <view class="{{anonymousState__temp10}}">
+                <input placeholder="标签在7个字以内" value="{{tag}}" maxlength="{{20}}" bindinput="anonymousFunc4" />
+            </view>
+        </block>
+    </view>
 </block>

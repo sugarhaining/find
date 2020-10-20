@@ -2,17 +2,17 @@
     <view class="{{anonymousState__temp}}">
         <title-panel compid="{{$compid__6}}"></title-panel>
         <swiper class="{{anonymousState__temp2}}" indicator-dots="{{true}}" indicator-color="rgba(255, 255, 255, .4)" indicator-active-color="rgba(255, 255, 255, 1)" autoplay="{{true}}">
-            <swiper-item class="{{swiper.$loopState__temp4}}" wx:for="{{loopArray8}}" wx:for-item="swiper" wx:for-index="_anonIdx2">
+            <swiper-item class="{{swiper.$loopState__temp4}}" wx:for="{{loopArray10}}" wx:for-item="swiper" wx:for-index="_anonIdx2">
                 <image src="{{swiper.$original.path}}"></image>
             </swiper-item>
         </swiper>
         <view class="{{anonymousState__temp5}}">
-            <view class="{{poi.$loopState__temp7}}" bindtap="anonymousFunc0" wx:for="{{loopArray9}}" wx:for-item="poi" wx:for-index="__index0" data-e-tap-so="this" data-e-tap-a-a="{{poi._$indexKey}}">
+            <view class="{{poi.$loopState__temp7}}" bindtap="anonymousFunc0" wx:for="{{loopArray11}}" wx:for-item="poi" wx:for-index="__index0" data-e-tap-so="this" data-e-tap-a-a="{{poi._$indexKey}}">
                 <image src="{{poi.$original.photos[0] ? poi.$original.photos[0].url : placeholder}}"></image>
                 <view>
-                    <view class="{{poi.$loopState__temp9}}">{{poi.$original.name.length > 16 ? poi.$original.name + '...' : poi.$original.name}}<text class="{{poi.$loopState__temp11}}">{{poi.$original.distance}}m</text>
+                    <view class="{{poi.$loopState__temp9}}">{{poi.$loopState__temp11}}<text class="{{poi.$loopState__temp13}}">{{poi.$original.distance}}m</text>
                     </view>
-                    <view class="{{poi.$loopState__temp13}}">{{poi.$original.address}}</view>
+                    <view class="{{poi.$loopState__temp15}}">{{poi.$loopState__temp17}}</view>
                 </view>
             </view>
         </view>

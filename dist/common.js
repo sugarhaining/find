@@ -150,6 +150,52 @@ Object.defineProperty(exports, "__esModule", {
 });
 var AMAPKEY = exports.AMAPKEY = '4ab0b341e2aba0c92ec5b56dff5298d5';
 var BMAPKEY = exports.BMAPKEY = 'Q6rtVKuoT03kskGYk7KnmWu4AhhB1pG6';
+var BASEURL = exports.BASEURL = 'http://127.0.0.1:7002';
+
+/***/ }),
+
+/***/ "./src/utils/apis/custom.ts":
+/*!**********************************!*\
+  !*** ./src/utils/apis/custom.ts ***!
+  \**********************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.fetchCommentById = exports.fetchReplyComment = exports.fetchNewestComment = exports.fetchComment = exports.fecthPublishComment = exports.fetchUserId = undefined;
+
+var _common = __webpack_require__(/*! ../common */ "./src/utils/common.ts");
+
+var fetchUserId = exports.fetchUserId = function fetchUserId(userInfo) {
+  return (0, _common.wrapFetch)('/login', "POST", userInfo);
+};
+var fecthPublishComment = exports.fecthPublishComment = function fecthPublishComment(comment) {
+  return (0, _common.wrapFetch)('/comment', 'POST', comment);
+};
+var fetchComment = exports.fetchComment = function fetchComment(boardId, offset, pageSize) {
+  return (0, _common.wrapFetch)('/comment', 'GET', {
+    boardId: boardId,
+    offset: offset,
+    pageSize: pageSize
+  });
+};
+var fetchNewestComment = exports.fetchNewestComment = function fetchNewestComment() {
+  return (0, _common.wrapFetch)('/comment/newest', 'GET');
+};
+var fetchReplyComment = exports.fetchReplyComment = function fetchReplyComment(commentId, content) {
+  return (0, _common.wrapFetch)('/comment', 'PUT', {
+    commentId: commentId,
+    content: content
+  });
+};
+var fetchCommentById = exports.fetchCommentById = function fetchCommentById(id) {
+  return (0, _common.wrapFetch)('/comment/' + id, 'GET');
+};
 
 /***/ }),
 
@@ -166,7 +212,19 @@ var BMAPKEY = exports.BMAPKEY = 'Q6rtVKuoT03kskGYk7KnmWu4AhhB1pG6';
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.fetchWeather = exports.fetchTravelRoute = exports.fetchAuthStatus = exports.fetchPois = undefined;
+exports.fetchWeather = exports.fetchTravelRoute = exports.fetchPois = undefined;
+
+var _custom = __webpack_require__(/*! ./custom */ "./src/utils/apis/custom.ts");
+
+Object.keys(_custom).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _custom[key];
+    }
+  });
+});
 
 var _CONSTANT = __webpack_require__(/*! ../CONSTANT */ "./src/utils/CONSTANT.ts");
 
@@ -186,15 +244,6 @@ var fetchPois = exports.fetchPois = function fetchPois() {
       fail: function fail(info) {
         reject(info);
       }
-    });
-  });
-};
-var fetchAuthStatus = exports.fetchAuthStatus = function fetchAuthStatus() {
-  return new Promise(function (resolve) {
-    Taro.getSetting().then(function (res) {
-      resolve([null, res]);
-    }).catch(function (err) {
-      resolve([err, null]);
     });
   });
 };
@@ -261,6 +310,270 @@ var fetchWeather = exports.fetchWeather = function fetchWeather() {
     });
   });
 };
+
+/***/ }),
+
+/***/ "./src/utils/common.ts":
+/*!*****************************!*\
+  !*** ./src/utils/common.ts ***!
+  \*****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.entitiestoUtf16 = exports.utf16toEntities = exports.wrapFetch = exports.splitString = undefined;
+
+var _regenerator = __webpack_require__(/*! babel-runtime/regenerator */ "./node_modules/babel-runtime/regenerator/index.js");
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js");
+
+var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
+
+var _lodash = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
+var _CONSTANT = __webpack_require__(/*! ./CONSTANT */ "./src/utils/CONSTANT.ts");
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var splitString = exports.splitString = function splitString(str, maxLength) {
+  var fix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '...';
+
+  var len = str.length;
+  return len > maxLength ? '' + str.slice(0, maxLength) + fix : str;
+};
+var wrapFetch = exports.wrapFetch = function () {
+  var _ref = _asyncToGenerator( /*#__PURE__*/_regenerator2.default.mark(function _callee(path, type, payload) {
+    var err, res;
+    return _regenerator2.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            err = void 0;
+            res = void 0;
+            _context.prev = 2;
+            _context.next = 5;
+            return _taroWeapp2.default.request({
+              url: '' + _CONSTANT.BASEURL + path,
+              method: type,
+              data: payload
+            }).then(function (res) {
+              return (0, _lodash.get)(res, ['data', 'data']);
+            });
+
+          case 5:
+            res = _context.sent;
+            _context.next = 11;
+            break;
+
+          case 8:
+            _context.prev = 8;
+            _context.t0 = _context['catch'](2);
+
+            err = _context.t0;
+
+          case 11:
+            return _context.abrupt('return', { err: err, res: res });
+
+          case 12:
+          case 'end':
+            return _context.stop();
+        }
+      }
+    }, _callee, undefined, [[2, 8]]);
+  }));
+
+  return function wrapFetch(_x2, _x3, _x4) {
+    return _ref.apply(this, arguments);
+  };
+}();
+var utf16toEntities = exports.utf16toEntities = function utf16toEntities(str) {
+  var patt = /[\ud800-\udbff][\udc00-\udfff]/g; // 检测utf16字符正则
+  str = str.replace(patt, function (char) {
+    var H = void 0;
+    var L = void 0;
+    var code = void 0;
+    var s = void 0;
+    if (char.length === 2) {
+      H = char.charCodeAt(0); // 取出高位
+      L = char.charCodeAt(1); // 取出低位
+      code = (H - 0xD800) * 0x400 + 0x10000 + L - 0xDC00; // 转换算法
+      s = '&#' + code + ';';
+    } else {
+      s = char;
+    }
+    return s;
+  });
+  return str;
+};
+var entitiestoUtf16 = exports.entitiestoUtf16 = function entitiestoUtf16(strObj) {
+  var patt = /&#\d+;/g;
+  var arr = strObj.match(patt) || [];
+  var H = void 0;
+  var L = void 0;
+  var code = void 0;
+  for (var i = 0; i < arr.length; i += 1) {
+    code = arr[i];
+    code = code.replace('&#', '').replace(';', '');
+    // 高位
+    H = Math.floor((code - 0x10000) / 0x400) + 0xD800;
+    // 低位
+    L = (code - 0x10000) % 0x400 + 0xDC00;
+    code = '&#' + code + ';';
+    var s = String.fromCharCode(H, L);
+    strObj = strObj.replace(code, s);
+  }
+  return strObj;
+};
+
+/***/ }),
+
+/***/ "./src/utils/hooks.ts":
+/*!****************************!*\
+  !*** ./src/utils/hooks.ts ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.useUserInfo = exports.useUserLocation = undefined;
+
+var _regenerator = __webpack_require__(/*! babel-runtime/regenerator */ "./node_modules/babel-runtime/regenerator/index.js");
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _taroWeapp = __webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js");
+
+var _taroWeapp2 = _interopRequireDefault(_taroWeapp);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
+
+var useUserLocation = exports.useUserLocation = function useUserLocation() {
+  var _useState = (0, _taroWeapp.useState)({
+    longitude: 116.434446,
+    latitude: 39.90816
+  }),
+      _useState2 = _slicedToArray(_useState, 2),
+      location = _useState2[0],
+      setLocation = _useState2[1];
+
+  var _useState3 = (0, _taroWeapp.useState)(false),
+      _useState4 = _slicedToArray(_useState3, 2),
+      finished = _useState4[0],
+      setFinished = _useState4[1];
+
+  (0, _taroWeapp.useDidShow)(function () {
+    _taroWeapp2.default.getLocation({
+      success: function success(info) {
+        var longitude = info.longitude,
+            latitude = info.latitude;
+
+        setFinished(true);
+        setLocation({
+          longitude: longitude,
+          latitude: latitude
+        });
+      }
+    });
+  });
+  return {
+    finished: finished,
+    location: location
+  };
+};
+var useUserInfo = exports.useUserInfo = function useUserInfo() {
+  var _useState5 = (0, _taroWeapp.useState)({
+    nickName: '',
+    avatarUrl: ''
+  }),
+      _useState6 = _slicedToArray(_useState5, 2),
+      userInfo = _useState6[0],
+      setUserInfo = _useState6[1];
+
+  (0, _taroWeapp.useDidShow)(_asyncToGenerator( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
+    var _ref2, data;
+
+    return _regenerator2.default.wrap(function _callee$(_context) {
+      while (1) {
+        switch (_context.prev = _context.next) {
+          case 0:
+            _context.next = 2;
+            return _taroWeapp2.default.getStorage({
+              key: 'userInfo'
+            });
+
+          case 2:
+            _ref2 = _context.sent;
+            data = _ref2.data;
+
+            setUserInfo(data);
+
+          case 5:
+          case 'end':
+            return _context.stop();
+        }
+      }
+    }, _callee, undefined);
+  })));
+  return userInfo;
+};
+
+/***/ }),
+
+/***/ "./src/utils/index.ts":
+/*!****************************!*\
+  !*** ./src/utils/index.ts ***!
+  \****************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _hooks = __webpack_require__(/*! ./hooks */ "./src/utils/hooks.ts");
+
+Object.keys(_hooks).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _hooks[key];
+    }
+  });
+});
+
+var _common = __webpack_require__(/*! ./common */ "./src/utils/common.ts");
+
+Object.keys(_common).forEach(function (key) {
+  if (key === "default" || key === "__esModule") return;
+  Object.defineProperty(exports, key, {
+    enumerable: true,
+    get: function get() {
+      return _common[key];
+    }
+  });
+});
 
 /***/ })
 

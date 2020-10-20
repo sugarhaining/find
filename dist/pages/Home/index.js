@@ -14,6 +14,12 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _regenerator = __webpack_require__(/*! babel-runtime/regenerator */ "./node_modules/babel-runtime/regenerator/index.js");
+
+var _regenerator2 = _interopRequireDefault(_regenerator);
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _get = function get(object, property, receiver) { if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { return get(parent, property, receiver); } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } };
@@ -44,9 +50,15 @@ var _send = __webpack_require__(/*! ../../asserts/icons/send.png */ "./src/asser
 
 var _send2 = _interopRequireDefault(_send);
 
-var _common = __webpack_require__(/*! ../../utils/common */ "./src/utils/common.ts");
+var _index3 = __webpack_require__(/*! ../../utils/index */ "./src/utils/index.ts");
+
+var _lodash = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
+
+var _index4 = __webpack_require__(/*! ../../utils/apis/index */ "./src/utils/apis/index.ts");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _asyncToGenerator(fn) { return function () { var gen = fn.apply(this, arguments); return new Promise(function (resolve, reject) { function step(key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { return Promise.resolve(value).then(function (value) { step("next", value); }, function (err) { step("throw", err); }); } } return step("next"); }); }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -64,19 +76,6 @@ var menus = [{
   iconPath: _send2.default,
   navigateTo: '/pages/Recome/index'
 }];
-var comments = [{
-  mood: '😄',
-  comment: '今天天气好好啊'
-}, {
-  mood: '🙃',
-  comment: '\n            \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n            \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n            \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n            \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n        '
-}, {
-  mood: '😐',
-  comment: '今天天气好好啊'
-}, {
-  mood: '😔',
-  comment: '\n        \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n        \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n        \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n        \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n        \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n        \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n        \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n        \u4ECA\u5929\u5929\u6C14\u597D\u597D\u554A\n    '
-}];
 
 var Home = (_temp2 = _class = function (_Taro$Component) {
   _inherits(Home, _Taro$Component);
@@ -92,7 +91,7 @@ var Home = (_temp2 = _class = function (_Taro$Component) {
       args[_key] = arguments[_key];
     }
 
-    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Home.__proto__ || Object.getPrototypeOf(Home)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "anonymousState__temp4", "anonymousState__temp5", "anonymousState__temp6", "anonymousState__temp17", "loopArray10", "loopArray11", "Avatar", "comments", "menus"], _this.anonymousFunc1Map = {}, _this.customComponents = [], _temp), _possibleConstructorReturn(_this, _ret);
+    return _ret = (_temp = (_this = _possibleConstructorReturn(this, (_ref = Home.__proto__ || Object.getPrototypeOf(Home)).call.apply(_ref, [this].concat(args))), _this), _this.$usedState = ["anonymousState__temp", "anonymousState__temp2", "anonymousState__temp3", "anonymousState__temp4", "anonymousState__temp5", "anonymousState__temp6", "anonymousState__temp7", "anonymousState__temp8", "anonymousState__temp9", "anonymousState__temp22", "anonymousState__temp25", "loopArray16", "loopArray17", "comments", "menus", "userInfo"], _this.anonymousFunc1Map = {}, _this.anonymousFunc2Map = {}, _this.customComponents = ["ClockIn"], _temp), _possibleConstructorReturn(_this, _ret);
   }
 
   _createClass(Home, [{
@@ -113,54 +112,118 @@ var Home = (_temp2 = _class = function (_Taro$Component) {
       var __prefix = this.$prefix;
       ;
 
+      var _useState = (0, _taroWeapp.useState)([]),
+          _useState2 = _slicedToArray(_useState, 2),
+          comments = _useState2[0],
+          setComments = _useState2[1];
+
+      var userInfo = (0, _index3.useUserInfo)();
       var goToPage = (0, _taroWeapp.useCallback)(function (url) {
         _taroWeapp2.default.navigateTo({ url: url });
       }, []);
+      var fetchNewestCommentIn = (0, _taroWeapp.useCallback)(_asyncToGenerator( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
+        var _ref3, err, res;
+
+        return _regenerator2.default.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.next = 2;
+                return (0, _index4.fetchNewestComment)();
+
+              case 2:
+                _ref3 = _context.sent;
+                err = _ref3.err;
+                res = _ref3.res;
+
+                if (err) {
+                  _taroWeapp2.default.showToast({
+                    title: '获取最新留言失败',
+                    icon: 'none'
+                  });
+                } else {
+                  setComments(res);
+                }
+
+              case 6:
+              case 'end':
+                return _context.stop();
+            }
+          }
+        }, _callee, _this2);
+      })), []);
+      var openLocation = (0, _taroWeapp.useCallback)(function (longitude, latitude) {
+        _taroWeapp2.default.openLocation({
+          longitude: longitude,
+          latitude: latitude
+        });
+      }, []);
+      (0, _taroWeapp.useDidShow)(function () {
+        fetchNewestCommentIn();
+      });
       var anonymousState__temp = cx('container');
       var anonymousState__temp2 = cx('panner');
-      var anonymousState__temp3 = cx('avatar');
-      var anonymousState__temp4 = cx('login');
+      var anonymousState__temp3 = (0, _lodash.get)(userInfo, ['avatarUrl']) || _avatar2.default;
+      var anonymousState__temp4 = cx('avatar');
+      var anonymousState__temp5 = (0, _lodash.get)(userInfo, ['avatarUrl']) ? cx('login') : null;
+      var anonymousState__temp6 = cx('login');
 
       this.anonymousFunc0 = function () {
         return goToPage('/pages/Login/index');
       };
 
-      var anonymousState__temp5 = cx('comment');
-      var anonymousState__temp6 = cx('swiper');
-      var anonymousState__temp17 = cx('menus');
-      var loopArray10 = comments.map(function (comment, _anonIdx) {
+      var anonymousState__temp7 = cx('clock-in');
+      var anonymousState__temp8 = cx('comment');
+      var anonymousState__temp9 = comments.length > 0 ? cx('swiper') : null;
+      var anonymousState__temp22 = cx('menus');
+      var anonymousState__temp25 = (0, _lodash.get)(userInfo, ['avatarUrl']);
+      var loopArray16 = comments.length > 0 ? comments.map(function (comment, __index1) {
         comment = {
           $original: (0, _taroWeapp.internal_get_original)(comment)
         };
-        var $loopState__temp8 = cx('item');
-        var $loopState__temp10 = cx('inner');
-        var $loopState__temp12 = cx('mood');
-        var $loopState__temp14 = cx('commend');
-        var $loopState__temp16 = (0, _common.splitString)(comment.$original.comment, 120);
+        var $loopState__temp11 = comments.length > 0 ? cx('item') : null;
+
+        var _$indexKey = "bazzz" + __index1;
+
+        _this2.anonymousFunc1Map[_$indexKey] = function () {
+          var _comment$$original$lo = comment.$original.location,
+              longitude = _comment$$original$lo.longitude,
+              latitude = _comment$$original$lo.latitude;
+
+          openLocation(longitude, latitude);
+        };
+
+        var $loopState__temp13 = comments.length > 0 ? cx('inner') : null;
+        var $loopState__temp15 = comments.length > 0 ? cx('mood') : null;
+        var $loopState__temp17 = comments.length > 0 ? (0, _index3.entitiestoUtf16)(comment.$original.mood) : null;
+        var $loopState__temp19 = comments.length > 0 ? cx('commend') : null;
+        var $loopState__temp21 = comments.length > 0 ? (0, _index3.splitString)(comment.$original.content, 120) : null;
         return {
-          $loopState__temp8: $loopState__temp8,
-          $loopState__temp10: $loopState__temp10,
-          $loopState__temp12: $loopState__temp12,
-          $loopState__temp14: $loopState__temp14,
-          $loopState__temp16: $loopState__temp16,
+          $loopState__temp11: $loopState__temp11,
+          _$indexKey: _$indexKey,
+          $loopState__temp13: $loopState__temp13,
+          $loopState__temp15: $loopState__temp15,
+          $loopState__temp17: $loopState__temp17,
+          $loopState__temp19: $loopState__temp19,
+          $loopState__temp21: $loopState__temp21,
           $original: comment.$original
         };
-      });
-      var loopArray11 = menus.map(function (menu, __index1) {
+      }) : [];
+      var loopArray17 = menus.map(function (menu, __index2) {
         menu = {
           $original: (0, _taroWeapp.internal_get_original)(menu)
         };
-        var $loopState__temp19 = cx('menu');
+        var $loopState__temp24 = cx('menu');
 
-        var _$indexKey = "fzzzz" + __index1;
+        var _$indexKey2 = "bbzzz" + __index2;
 
-        _this2.anonymousFunc1Map[_$indexKey] = function () {
+        _this2.anonymousFunc2Map[_$indexKey2] = function () {
           return goToPage(menu.$original.navigateTo);
         };
 
         return {
-          $loopState__temp19: $loopState__temp19,
-          _$indexKey: _$indexKey,
+          $loopState__temp24: $loopState__temp24,
+          _$indexKey2: _$indexKey2,
           $original: menu.$original
         };
       });
@@ -171,12 +234,16 @@ var Home = (_temp2 = _class = function (_Taro$Component) {
         anonymousState__temp4: anonymousState__temp4,
         anonymousState__temp5: anonymousState__temp5,
         anonymousState__temp6: anonymousState__temp6,
-        anonymousState__temp17: anonymousState__temp17,
-        loopArray10: loopArray10,
-        loopArray11: loopArray11,
-        Avatar: _avatar2.default,
+        anonymousState__temp7: anonymousState__temp7,
+        anonymousState__temp8: anonymousState__temp8,
+        anonymousState__temp9: anonymousState__temp9,
+        anonymousState__temp22: anonymousState__temp22,
+        anonymousState__temp25: anonymousState__temp25,
+        loopArray16: loopArray16,
+        loopArray17: loopArray17,
         comments: comments,
-        menus: menus
+        menus: menus,
+        userInfo: userInfo
       });
       return this.__state;
     }
@@ -198,10 +265,23 @@ var Home = (_temp2 = _class = function (_Taro$Component) {
 
       return this.anonymousFunc1Map[_$indexKey] && (_anonymousFunc1Map = this.anonymousFunc1Map)[_$indexKey].apply(_anonymousFunc1Map, e);
     }
+  }, {
+    key: 'anonymousFunc2',
+    value: function anonymousFunc2(_$indexKey2) {
+      var _anonymousFunc2Map;
+
+      ;
+
+      for (var _len3 = arguments.length, e = Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+        e[_key3 - 1] = arguments[_key3];
+      }
+
+      return this.anonymousFunc2Map[_$indexKey2] && (_anonymousFunc2Map = this.anonymousFunc2Map)[_$indexKey2].apply(_anonymousFunc2Map, e);
+    }
   }]);
 
   return Home;
-}(_taroWeapp2.default.Component), _class.$$events = ["anonymousFunc0", "anonymousFunc1"], _class.$$componentPath = "pages/Home/index", _temp2);
+}(_taroWeapp2.default.Component), _class.$$events = ["anonymousFunc0", "anonymousFunc1", "anonymousFunc2"], _class.$$componentPath = "pages/Home/index", _temp2);
 exports.default = Home;
 
 Component(__webpack_require__(/*! @tarojs/taro-weapp */ "./node_modules/@tarojs/taro-weapp/index.js").default.createComponent(Home, true));
@@ -299,28 +379,6 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_file_loader_dist_cjs_js_name_path_name_wxml_context_D_project_rep_friend_src_node_modules_tarojs_mini_runner_dist_loaders_miniTemplateLoader_js_node_modules_tarojs_mini_runner_dist_loaders_wxTransformerLoader_js_ref_6_0_index_tsx_taro_type_template_parse_PAGE___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_file_loader_dist_cjs_js_name_path_name_wxml_context_D_project_rep_friend_src_node_modules_tarojs_mini_runner_dist_loaders_miniTemplateLoader_js_node_modules_tarojs_mini_runner_dist_loaders_wxTransformerLoader_js_ref_6_0_index_tsx_taro_type_template_parse_PAGE___WEBPACK_IMPORTED_MODULE_0__);
 /* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_file_loader_dist_cjs_js_name_path_name_wxml_context_D_project_rep_friend_src_node_modules_tarojs_mini_runner_dist_loaders_miniTemplateLoader_js_node_modules_tarojs_mini_runner_dist_loaders_wxTransformerLoader_js_ref_6_0_index_tsx_taro_type_template_parse_PAGE___WEBPACK_IMPORTED_MODULE_0__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_file_loader_dist_cjs_js_name_path_name_wxml_context_D_project_rep_friend_src_node_modules_tarojs_mini_runner_dist_loaders_miniTemplateLoader_js_node_modules_tarojs_mini_runner_dist_loaders_wxTransformerLoader_js_ref_6_0_index_tsx_taro_type_template_parse_PAGE___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
 
-
-/***/ }),
-
-/***/ "./src/utils/common.ts":
-/*!*****************************!*\
-  !*** ./src/utils/common.ts ***!
-  \*****************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var splitString = exports.splitString = function splitString(str, maxLength) {
-  var fix = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '...';
-
-  var len = str.length;
-  return len > maxLength ? '' + str.slice(0, maxLength) + fix : str;
-};
 
 /***/ })
 

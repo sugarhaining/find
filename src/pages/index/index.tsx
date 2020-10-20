@@ -16,7 +16,7 @@ const Index: Taro.FC<IProps> = () => {
         try {
             let { result } = await Taro.scanCode({})
             Taro.navigateTo({
-                url: `/pages/Comment/index?commentBoardId=${result}`,
+                url: `/pages/Comment/index?boardId=${result}`,
             })
         } catch (err) {
             Taro.showToast({

@@ -1,6 +1,7 @@
 import Taro, { useState, useEffect, useCallback } from '@tarojs/taro'
-import { View, Image, Text, Swiper, SwiperItem} from '@tarojs/components'
+import { View, Image, Text, Swiper, SwiperItem } from '@tarojs/components'
 import { fetchPois } from '../../utils/apis'
+import {splitString} from '../../utils/common'
 import placeholder from '../../asserts/icons/placeholder.png'
 import classnames from 'classnames/bind'
 import style from './index.scss'
@@ -8,7 +9,7 @@ import TitlePanel from '../../component/TitlePanel/index';
 
 const cx = classnames.bind(style)
 
-interface IProps {}
+interface IProps { }
 interface Poi {
     name: string,
     distance: number,
@@ -23,7 +24,7 @@ const splitLocation = (location: string = ''): Location => {
     const locationArr = location.split(',')
     return {
         longitude: +locationArr[0],
-        latitude: +locationArr[1] 
+        latitude: +locationArr[1]
     }
 }
 
@@ -95,11 +96,11 @@ const Pois: Taro.FC<IProps> = () => {
                             <Image src={poi.photos[0] ? poi.photos[0].url : placeholder} />
                             <View>
                                 <View className={cx('name')}>
-                                    {poi.name.length > 16 ? `${poi.name}...` : poi.name}
+                                    {splitString(poi.name, 16)}
                                     <Text className={cx('distance')}>{poi.distance}m</Text>
                                 </View>
                                 <View className={cx('addr')}>
-                                    {poi.address}
+                                    {splitString(poi.address, 25) || '...'}
                                 </View>
                             </View>
                         </View>

@@ -1,0 +1,6 @@
+<block wx:if="{{$taroCompReady}}">
+    <view class="{{anonymousState__temp}}">已打卡
+        <view class="{{anonymousState__temp2}}"></view>
+        <view class="{{anonymousState__temp3}}"></view>
+    </view>
+</block>
